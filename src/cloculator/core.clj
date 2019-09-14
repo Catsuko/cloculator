@@ -2,6 +2,8 @@
   (:gen-class))
 
 (defn -main []
-  (println "Please enter your expression:")
-  (println ">")
-  (println(str "Answer is: " (read-line))))
+  (defn cloculate [expression] (clojure.string/split "Hello Hello" #" "))
+  (doseq [item (cloculate "1 + 1")] (println item)))
+
+  
+  
