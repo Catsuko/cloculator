@@ -2,12 +2,19 @@
   (:gen-class))
 
 (defn -main []
-  (defn parse-int [s] (Integer. (re-find  #"\d+" s)))
-  (defn evaluate_operator [expression, operator]
-    ((resolve (symbol operator)) (parse-int expression) (parse-int (subs expression 2))))
-  (defn cloculate [expression] 
-    (evaluate_operator expression "+"))
-  (println (cloculate "1+1")))
+  (defn sqrs [n]
+    (->> (range)
+         (map #(* % %))
+         (filter even?)
+         (take n)))
+  ;;(0 4 16)
+  (println (sqrs 3))
+  ;;(0 4 16 36 64 100 144 196 256 324)
+  (println (sqrs 10)))
+  
+
+    
+  
 
   
   
