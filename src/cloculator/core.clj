@@ -2,18 +2,17 @@
   (:gen-class))
 
 (defn -main []
-  (defn sqrs [n]
-    (->> (range)
-         (map #(* % %))
-         (filter even?)
-         (take n)))
-  ;;(0 4 16)
-  (println (sqrs 3))
-  ;;(0 4 16 36 64 100 144 196 256 324)
-  (println (sqrs 10)))
-  
-
-    
+  (defn parseNum [item] 
+    (if (re-matches #"\A\d*\z" item) (Integer/parseInt item) item))
+  (defn tokenize [expression] 
+    (map parseNum (clojure.string/split expression #"\b")))
+  (defn simplify [tokens] 
+    ((resolve (symbol (nth tokens 1))) 
+     (nth tokens 0) 
+     (nth tokens 2)))
+  (println "Enter an expression below:")
+  (println)
+  (println (simplify (tokenize (read-line)))))
   
 
   
