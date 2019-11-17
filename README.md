@@ -1,7 +1,3 @@
 # cloculator
 
-A Clojure app to ... well, that part is up to you.
-
-## Usage
-
-FIXME
+Learning Clojure by building a simple interpreter.
